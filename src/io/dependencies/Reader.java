@@ -1,4 +1,4 @@
-package caesar.cipher;
+package io.dependencies;
 
 import main.interfaces.IReader;
 
@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class CaesarReader implements IReader {
+public class Reader implements IReader {
     public String readTextFromFile(String filePath) {
         String text = "";
         try {
@@ -25,9 +25,12 @@ public class CaesarReader implements IReader {
         return scanner.nextLine();
     }
 
-    public Integer readKeyFromConsole() {
+    public Integer getUserSelectedCypher() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please insert the key for the cipher:");
+        System.out.println("Please select what Cipher you want to use");
+        System.out.println("Select 1 for Caesar Cipher");
+        System.out.println("Select 2 for Vigenere Cipher");
+        System.out.println("Select 3 for Playfair Cipher");
         return scanner.nextInt();
     }
 }

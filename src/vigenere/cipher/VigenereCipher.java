@@ -1,19 +1,18 @@
-package caesar.cipher;
+package vigenere.cipher;
 
 import main.interfaces.ICriptoSystem;
 
 import java.util.Scanner;
 
-public class CaesarCipher implements ICriptoSystem {
-
+public class VigenereCipher implements ICriptoSystem {
     private String alphabet;
-    private Integer key;
+    private String key;
 
-    public CaesarCipher() {
+    public VigenereCipher() {
         this.alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please insert the key for the cipher:");
-        this.key = scanner.nextInt();
+        this.key = cleanPlainTextInput(scanner.next());
     }
 
     public String cleanPlainTextInput(String text) {
@@ -26,40 +25,36 @@ public class CaesarCipher implements ICriptoSystem {
                 text = text.replace(text.charAt(x), ' ');
             }
         }
-        return text;
+        return text.toUpperCase();
     }
 
     public String encryptPlaintTextInput(String plainText) {
         String cleanText = cleanPlainTextInput(plainText);
 
+        System.out.println(cleanText);
         StringBuilder encrypted = new StringBuilder(cleanText.length());
 
-        for (int i = 0; i < cleanText.length(); i++) {
-            int position = alphabet.indexOf(cleanText.charAt(i));
-
-            if ((position + key) < alphabet.length()) {
-                encrypted.append(alphabet.charAt(position + key));
-            } else {
-                encrypted.append(alphabet.charAt((position + key) - alphabet.length()));
-            }
+        for (int i = 0, j = 0; i < cleanText.length(); i++) {
+            char c = cleanText.charAt(i);
+            if (c < 'A' || c > 'Z') continue;
+            encrypted.append((char) ((c + key.charAt(j) - 2 * 'A') % 26 + 'A'));
+            j = ++j % key.length();
         }
+
         return encrypted.toString();
     }
 
     public String decryptCipherTextInput(String cipherText) {
         String cleanText = cleanPlainTextInput(cipherText);
-
         StringBuilder decrypted = new StringBuilder(cleanText.length());
 
-        for (int i = 0; i < cleanText.length(); i++) {
-            int position = alphabet.indexOf(cleanText.charAt(i));
-
-            if ((position - key) < 0) {
-                decrypted.append(alphabet.charAt((position - key) + alphabet.length()));
-            } else {
-                decrypted.append(alphabet.charAt(position - key));
-            }
+        for (int i = 0, j = 0; i < cleanText.length(); i++) {
+            char c = cleanText.charAt(i);
+            if (c < 'A' || c > 'Z') continue;
+            decrypted.append((char) ((c - key.charAt(j) + 26) % 26 + 'A'));
+            j = ++j % key.length();
         }
+
         return decrypted.toString();
     }
 }

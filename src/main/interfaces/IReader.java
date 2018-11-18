@@ -1,9 +1,9 @@
 package main.interfaces;
 
 public interface IReader {
-    public String readTextFromFile(String filePath);
+    String readTextFromFile(String filePath);
 
-    public String readTextFromConsole();
+    String readTextFromConsole();
 
-    public Integer readKeyFromConsole();
+    Integer getUserSelectedCypher();
 }
