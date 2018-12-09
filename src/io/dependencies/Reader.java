@@ -31,6 +31,8 @@ public class Reader implements IReader {
         System.out.println("Select 1 for Caesar Cipher");
         System.out.println("Select 2 for Vigenere Cipher");
         System.out.println("Select 3 for Playfair Cipher");
+        System.out.println("Select 4 for Autokey Cipher");
+        System.out.println("Select 5 for Foursquares Cipher");
         return scanner.nextInt();
     }
 }

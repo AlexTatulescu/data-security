@@ -1,4 +1,6 @@
+import autokey.cipher.AutokeyCipher;
 import caesar.cipher.CaesarCipher;
+import foursquares.cipher.FourSquaresCipher;
 import io.dependencies.Reader;
 import io.dependencies.Writer;
 import playfair.cipher.PlayfairCipher;
@@ -30,6 +32,17 @@ public class CipherTester {
                     encryptedText = playfairCipher.encryptPlaintTextInput(data);
                     decryptedText = playfairCipher.decryptCipherTextInput(encryptedText);
                     break;
+                case 4:
+                    AutokeyCipher autokeyCipher = new AutokeyCipher();
+                    encryptedText = autokeyCipher.encryptPlaintTextInput(data);
+                    decryptedText = autokeyCipher.decryptCipherTextInput(encryptedText);
+                    break;
+                case 5:
+                    FourSquaresCipher fourSquaresCipher = new FourSquaresCipher();
+                    encryptedText = fourSquaresCipher.encryptPlaintTextInput(data);
+                    decryptedText = fourSquaresCipher.decryptCipherTextInput(encryptedText);
+                    break;
+
                 default:
                     System.out.println("Please select a valid option!");
             }
