@@ -1,5 +1,6 @@
 import autokey.cipher.AutokeyCipher;
 import caesar.cipher.CaesarCipher;
+import columnar_transpose.cipher.ColumnarTransposeCipher;
 import foursquares.cipher.FourSquaresCipher;
 import io.dependencies.Reader;
 import io.dependencies.Writer;
@@ -41,6 +42,11 @@ public class CipherTester {
                     FourSquaresCipher fourSquaresCipher = new FourSquaresCipher();
                     encryptedText = fourSquaresCipher.encryptPlaintTextInput(data);
                     decryptedText = fourSquaresCipher.decryptCipherTextInput(encryptedText);
+                    break;
+                case 6:
+                    ColumnarTransposeCipher columnarTransposeCipher = new ColumnarTransposeCipher();
+                    encryptedText = columnarTransposeCipher.encryptPlaintTextInput(data);
+                    decryptedText = columnarTransposeCipher.decryptCipherTextInput(encryptedText);
                     break;
 
                 default:

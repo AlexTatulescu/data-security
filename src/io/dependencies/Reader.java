@@ -33,6 +33,7 @@ public class Reader implements IReader {
         System.out.println("Select 3 for Playfair Cipher");
         System.out.println("Select 4 for Autokey Cipher");
         System.out.println("Select 5 for Foursquares Cipher");
+        System.out.println("Select 6 for ColumnarTranspose Cipher");
         return scanner.nextInt();
     }
 }
