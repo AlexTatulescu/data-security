@@ -1,10 +1,12 @@
 import autokey.cipher.AutokeyCipher;
+import bifid.cipher.BifidCipher;
 import caesar.cipher.CaesarCipher;
 import columnar_transpose.cipher.ColumnarTransposeCipher;
 import foursquares.cipher.FourSquaresCipher;
 import io.dependencies.Reader;
 import io.dependencies.Writer;
 import playfair.cipher.PlayfairCipher;
+import trifid.cipher.TrifidCipher;
 import vigenere.cipher.VigenereCipher;
 
 public class CipherTester {
@@ -47,6 +49,16 @@ public class CipherTester {
                     ColumnarTransposeCipher columnarTransposeCipher = new ColumnarTransposeCipher();
                     encryptedText = columnarTransposeCipher.encryptPlaintTextInput(data);
                     decryptedText = columnarTransposeCipher.decryptCipherTextInput(encryptedText);
+                    break;
+                case 7:
+                    BifidCipher bifidCipher = new BifidCipher();
+                    encryptedText = bifidCipher.encryptPlaintTextInput(data);
+                    decryptedText = bifidCipher.decryptCipherTextInput(encryptedText);
+                    break;
+                case 8:
+                    TrifidCipher trifidCipher = new TrifidCipher();
+                    encryptedText = trifidCipher.encryptPlaintTextInput(data);
+                    decryptedText = trifidCipher.decryptCipherTextInput(encryptedText);
                     break;
 
                 default:

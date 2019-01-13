@@ -34,6 +34,8 @@ public class Reader implements IReader {
         System.out.println("Select 4 for Autokey Cipher");
         System.out.println("Select 5 for Foursquares Cipher");
         System.out.println("Select 6 for ColumnarTranspose Cipher");
+        System.out.println("Select 7 for Bifid Cipher");
+        System.out.println("Select 8 for Trifid Cipher");
         return scanner.nextInt();
     }
 }
